@@ -26,13 +26,16 @@
   z-index: -2;
   min-height: 100vh;
 }
+html{
+  background-color: #5522E8;
+  background-image: url('./bg__gradient.svg');
 
+}
 body {
   font-family: 'Oswald', sans-serif;
-  background-image: url('./bg.svg');
-  background-color: #5522E8;
+  background-image: url('./siatka.svg');
   background-repeat: repeat;
-  background-size: cover;
+  background-size: contain;
   min-height: 100vh;
   width: 100%;
 }
@@ -52,7 +55,7 @@ body {
 
 
 .text {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
 }
 
