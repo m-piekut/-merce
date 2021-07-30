@@ -1,6 +1,5 @@
-<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="bg">
-<rect id="bg__gradient" width="1920" height="1080" fill="url(#paint0_linear)"/>
+<svg width="1920" height="1104" viewBox="0 0 1920 1104" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="siatka">
 <g id="bg__pattern--square--l" opacity="0.04">
 <rect id="rectangle 1" x="0.5" y="0.5" width="47" height="47" stroke="white"/>
 <rect id="rectangle 2" x="48.5" y="0.5" width="47" height="47" stroke="white"/>
@@ -1783,21 +1782,5 @@
 <circle id="ellipse 857" cx="1824" cy="1056" r="2" fill="white"/>
 <circle id="ellipse 858" cx="1872" cy="1056" r="2" fill="white"/>
 </g>
-<g id="bg__glass" filter="url(#filter0_b)">
-<rect x="634" width="908" height="1080" fill="#FAFAFA" fill-opacity="0.16"/>
-<rect x="634.5" y="0.5" width="907" height="1079" stroke="#FAFAFA" stroke-opacity="0.25"/>
 </g>
-</g>
-<defs>
-<filter id="filter0_b" x="630" y="-4" width="916" height="1088" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImage" stdDeviation="2"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur" result="shape"/>
-</filter>
-<linearGradient id="paint0_linear" x1="960" y1="0" x2="960" y2="1080" gradientUnits="userSpaceOnUse">
-<stop stop-color="#7122E8" stop-opacity="0"/>
-<stop offset="1" stop-color="#7122E8" stop-opacity="0.9375"/>
-</linearGradient>
-</defs>
 </svg>
