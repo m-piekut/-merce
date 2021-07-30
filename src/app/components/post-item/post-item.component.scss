@@ -1,0 +1,65 @@
+@import '../scss/colors';
+
+
+.post{
+  width: 90%;
+  max-width: 320px;
+  background-color: #fff;
+  box-shadow: 0px 36px 48px rgba(13, 4, 35, 0.5);
+  border-radius: 8px;
+  margin: 24px auto;
+  padding-top: 0.01px;
+  overflow: hidden;
+
+  &__footer{
+    background-image: $gradient;
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a{
+      font-size: 14px;
+      color: #041C26;
+    }
+  }
+  &__arrow{
+    background-image: url('./arrow.svg');
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .post{
+    max-width: auto;
+
+    &__footer{
+      a{
+        font-size: 16px;
+        line-height: 19,35px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1920px) {
+  .post{
+    max-width: 476px;
+    // margin: 5px 10px;
+    &__footer{
+      a{
+        font-size: 24px;
+        line-height: 29,05px;
+      }
+    }
+  }
+
+
+
+
+}

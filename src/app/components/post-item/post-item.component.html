@@ -1,0 +1,11 @@
+<div class="post">
+  <div class="logo"></div>
+  <div class="text">
+    <h4 class="title">{{post.title}}</h4>
+    <p class="content">{{post.body}}</p>
+  </div>
+  <footer class="post__footer">
+    <a [routerLink]="['/post', post.id]">Zobacz</a>
+    <div class="post__arrow"></div>
+  </footer>
+</div>

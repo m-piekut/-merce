@@ -1,0 +1,111 @@
+@import '../scss/colors';
+
+
+.header{
+background-color: $darkColor;
+color: #fff;
+display: flex;
+flex-direction: column;
+position: sticky;
+width: 100%;
+bottom: 0px;
+z-index: 100;
+
+&__up, &__down{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px ;
+  padding: 15px 0;
+  position: relative;
+  }
+  &__up{
+    &::after{
+      content: '';
+      height: 1px;
+      width: 100%;
+      top: 100%;
+      background-image: $gradient;
+      z-index: 10;
+      position: absolute;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 35,57px;
+  }
+  &__subtitle{
+    font-size: 24px;
+    line-height: 35,57px;
+  }
+  &__subtitleSpan{
+    font-weight: 200;
+  }
+  &__logo{
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    align-self: flex-end;
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .header{
+    position: fixed;
+    background: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    justify-content: space-between;
+    z-index: -1;
+
+    &__up{
+
+      &::after{
+        display: none;
+      }
+    }
+    &__title{
+      font-size: 48px;
+    }
+    &__subtitle{
+      font-size: 36px;
+      line-height: 35,57px;
+    }
+    &__logo{
+      font-size: 24px;
+    }
+  }
+
+}
+@media only screen and (min-width: 1366px) {
+  .header{
+    &__title{
+      font-size: 64px;
+    }
+    &__subtitle{
+      font-size: 48px;
+    }
+    &__logo{
+      font-size: 32px;
+    }
+  }
+
+}
+@media only screen and (min-width: 1920px) {
+  .header{
+    &__title{
+      font-size: 80px;
+    }
+    &__subtitle{
+      font-size: 64px;
+    }
+    &__logo{
+      font-size: 40px;
+    }
+  }
+
+}

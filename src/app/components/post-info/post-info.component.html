@@ -1,0 +1,54 @@
+<div class="post_info__wrapper">
+
+
+<div class="post_info">
+  <div class="post_info__header">
+    <a routerLink="/" class="post_info__close"><i class="fas fa-times"></i></a>
+  </div>
+  <div class="logo"></div>
+  <div class="text">
+
+    <h4 class="title">{{postInfo.title}}</h4>
+    <p class="content">{{postInfo.body}}</p>
+    <div class="comments">
+      <div class="comments__up">
+        <div class="comments__titleWrapper">
+          <h5 class="comments__title">Comments</h5>
+          <div class="comments__titleWrapper__bg"></div>
+        </div>
+
+        <form *ngIf="displayElement; else elseBlock" class="form" (ngSubmit)="onSubmit()">
+          <input class="form__input" type="text" name="name" [(ngModel)]="name" id="" placeholder="name">
+          <input class="form__input" type="email" name="email" [(ngModel)]="email" id="" placeholder="email">
+          <textarea class="form__input form__textarea" name="body" [(ngModel)]="body" id="" cols="30" rows="10" placeholder="comment"></textarea>
+          <button (click)="showForm()" class="form__cancel">Odrzuć</button>
+          <button  class="form__add">Wyślij <i class="fas fa-plus"></i></button>
+          <div>
+        </div>
+        </form>
+      </div>
+      <ng-template #elseBlock>
+        <div  class="comments__wrapper">
+          <div  *ngFor="let comment of comments">
+            <div class="comment">
+              <div class="comment__left">
+                <p class="comment__title">{{comment.name}}</p>
+                <p class="comment__email">{{comment.email}}</p>
+              </div>
+              <p class="comment__body">{{comment.body}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="comments__footer">
+          <button (click)="showForm()" class="add"><i class="fas fa-plus"></i></button>
+        </div>
+      </ng-template>
+
+  </div>
+</div>
+
+</div>
+</div>
+
+
