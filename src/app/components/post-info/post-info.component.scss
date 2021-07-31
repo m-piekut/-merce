@@ -106,11 +106,10 @@
   }
 
   &__footer {
-    width: 112%;
+    width: 132%;
     z-index: 9;
-    // margin-top: 50px;
     z-index: 9;
-    left: -6%;
+    left: -16%;
     background-image: $gradient;
     position: relative;
     height: 56px;
@@ -119,7 +118,7 @@
 
 .add {
   position: absolute;
-  right: 30px;
+  right: 10%;
   top: -28px;
   background-color: $darkColor;
   color: white;
