@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Post}  from '../../Post';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-posts',
@@ -8,24 +9,23 @@ import {Post}  from '../../Post';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts:any = [];//wszystkie posty
+  posts:any //wszystkie posty
   postsSlice = [] // wycinek postów, w zależności od numeru strony
   pageSize = 4; //ile postów na stronie
   howManyPages: number
-
   event: any = {
-    length: this.posts.length,
+    length: 100,
     pageIndex: 1,
     pageSize: this.pageSize,
     previousPageIndex: 0
   }
+  showPageIndex = this.event.pageIndex < 10 ? `0${this.event.pageIndex}` : this.event.pageIndex
 
   startIndex = this.event.pageIndex * this.event.pageSize;
 
   pageUp(){
     let arrowLeft: any = document.querySelector('.pagination__arrowLeft')
     let arrowRight: any = document.querySelector('.pagination__arrowRight')
-
 
     this.startIndex = this.event.pageIndex * this.event.pageSize;
     let endIndex = this.startIndex + this.event.pageSize;
@@ -39,6 +39,7 @@ export class PostsComponent implements OnInit {
     console.log(this.event.pageIndex);
 
 
+    this.showPageIndex = this.event.pageIndex < 10 ? `0${this.event.pageIndex}` : this.event.pageIndex
     //wyłączanie strzałek
     if(this.event.pageIndex >= 1) { arrowLeft.removeAttribute('disabled', 'true') }
     if(this.event.pageIndex === this.howManyPages) { arrowRight.setAttribute('disabled', 'true') }
@@ -49,7 +50,6 @@ export class PostsComponent implements OnInit {
   pageDown(){
     let arrowLeft: any = document.querySelector('.pagination__arrowLeft')
     let arrowRight: any = document.querySelector('.pagination__arrowRight')
-
 
     this.startIndex = this.event.pageIndex * this.event.pageSize -(this.event.pageSize*2);
     let endIndex = this.startIndex + this.event.pageSize;
@@ -65,27 +65,26 @@ export class PostsComponent implements OnInit {
     //wyłączanie strzałek
     if(this.event.pageIndex === 1) { arrowLeft.setAttribute('disabled', 'true') }
     if(this.event.pageIndex <= this.howManyPages) { arrowRight.removeAttribute('disabled', 'true') }
+    this.showPageIndex = this.event.pageIndex < 10 ? `0${this.event.pageIndex}` : this.event.pageIndex
 
   }
 
-  constructor(private http : HttpClient) { }
+  constructor( private store: Store<{posts : {posts: any}}>) { }
 
   ngOnInit(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/posts')
-    .subscribe(Response => {
-      if(Response){
-      }
-      console.log(Response)
-      this.posts=Response;
-      this.postsSlice = this.posts.slice(0,4)
-      if(this.posts.length % this.pageSize >0){
-        this.howManyPages = Math.floor(this.posts.length / this.pageSize) +1
-      }else{
-        this.howManyPages = this.posts.length / this.pageSize
-      }
-    });
 
 
+    this.store.select('posts').subscribe(data => {
+     this.posts = data.posts
+     console.log(data.posts);
+     this.postsSlice = this.posts.slice(0,4)
+     if(this.posts.length % this.pageSize >0){
+       this.howManyPages = Math.floor(this.posts.length / this.pageSize) +1
+     }else{
+       this.howManyPages = this.posts.length / this.pageSize
+     }
+
+   })
   }
 
 }

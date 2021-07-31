@@ -11,6 +11,8 @@ import { PostItemComponent } from './components/post-item/post-item.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PostInfoComponent } from './components/post-info/post-info.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { postsReducer } from './store/posts.reducer';
 
 
 
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     FormsModule,
     JwPaginationModule,
     NoopAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    StoreModule.forRoot({posts: postsReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
