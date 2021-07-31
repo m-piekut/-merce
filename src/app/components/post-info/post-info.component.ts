@@ -50,8 +50,6 @@ export class PostInfoComponent implements OnInit {
 
   }
 
-
-
   constructor(private http : HttpClient, private router :ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -59,9 +57,6 @@ export class PostInfoComponent implements OnInit {
     this.url = "https://jsonplaceholder.typicode.com/posts/" + this.id;
     this.http.get(this.url)
     .subscribe(Response => {
-
-      // If response comes hideloader() function is called
-      // to hide that loader
       if(Response){
       }
       this.postInfo=Response;
@@ -69,9 +64,6 @@ export class PostInfoComponent implements OnInit {
 
     this.http.get(this.url + '/comments')
     .subscribe(Response => {
-
-      // If response comes hideloader() function is called
-      // to hide that loader
       if(Response){
 
       }
