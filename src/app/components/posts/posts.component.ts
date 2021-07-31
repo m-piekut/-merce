@@ -35,8 +35,6 @@ export class PostsComponent implements OnInit {
     this.postsSlice = this.posts.slice(this.startIndex, endIndex)
 
 
-    console.log(this.event);
-    console.log(this.event.pageIndex);
 
 
     this.showPageIndex = this.event.pageIndex < 10 ? `0${this.event.pageIndex}` : this.event.pageIndex
@@ -76,7 +74,6 @@ export class PostsComponent implements OnInit {
 
     this.store.select('posts').subscribe(data => {
      this.posts = data.posts
-     console.log(data.posts);
      this.postsSlice = this.posts.slice(0,4)
      if(this.posts.length % this.pageSize >0){
        this.howManyPages = Math.floor(this.posts.length / this.pageSize) +1

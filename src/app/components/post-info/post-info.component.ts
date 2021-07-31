@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostInfoComponent implements OnInit {
   @Input() comment: any
-  postInfo: any;
+  postInfo: any ;
   id: any;
   url: any
   comments: any;
@@ -42,12 +42,13 @@ export class PostInfoComponent implements OnInit {
       email: this.email,
       body: this.body,
     }
-    console.log(this.postInfo);
     this.comments.push(newComment)
-    console.log(newComment);
 
     this.displayElement= false
 
+    this.name = ''
+    this.email = ''
+    this.body = ''
   }
 
   constructor(private http : HttpClient, private router :ActivatedRoute) { }
@@ -67,7 +68,7 @@ export class PostInfoComponent implements OnInit {
       if(Response){
 
       }
-      console.log(Response)
+
       this.comments=Response;
     });
 
